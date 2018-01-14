@@ -1,0 +1,19 @@
+# Alex Fleetwood
+# This file was created according to the guide "How to set up Nginx Server Blocks (virtual hosts) on Ubuntu 16.04" by DigitalOcean
+
+server {
+	listen 80;
+	listen [::]:80;
+
+	root /var/www/hw01.coffeecake.site/html;
+	
+	index index.html index.htm index.nginx-debian.html;
+
+	server_name hw01.coffeecake.site;
+
+	location / {
+		# First attempt to serve request as file, then
+		# as directory, then fall back to displaying a 404.
+		try_files $uri $uri/ =404;
+	}
+}
